@@ -71,7 +71,8 @@ class Atm:
             print("Wrong Pin.")
         self.menu()
 
-# obj = Atm()
+# obj = Atm() #obj is a reference variable which has the address of a specific object of a class
+# abc = obj #now both the variable point to same object so changes made to one will also affect other 
 # print(obj.pin,obj.balance)
 
 class Fraction:
@@ -134,7 +135,6 @@ class Point:
     def distance_from_origin(self):
         return self.euclidean_distance(Point(0,0))  #(((self.xcod - 0)**2) + ((self.ycod - 0)**2))**1/2
     
-
 # p1 = Point(2,2)
 # p2 = Point(4,2)
 # print(p1.euclidean_distance(p2))
@@ -157,5 +157,9 @@ class Line:
         else:
             return False
 
-l1 = Line(1,-1,-2)
-print(l1.point_on_line(Point(1,-1)))
+    def distance_between_point(line,point):
+        return abs(line.a*point.xcod + line.b*point.ycod + line.c)/((line.a + line.b)**0.5)
+
+# l1 = Line(1,1,-2)
+# print(l1.distance_between_point(Point(1,10)))
+
