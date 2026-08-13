@@ -111,10 +111,51 @@ class Fraction:
     def convert_to_decimal(self):
         return self.num/self.den
 
-fr1 = Fraction(1,4)
-fr2 = Fraction(1,4)
-print(fr1 + fr2)
-print(fr1 - fr2)
-print(fr1 * fr2)
-print(fr1 / fr2)
-print(fr1.convert_to_decimal())
+# fr1 = Fraction(1,4)
+# fr2 = Fraction(1,4)
+# print(fr1 + fr2)
+# print(fr1 - fr2)
+# print(fr1 * fr2)
+# print(fr1 / fr2)
+# print(fr1.convert_to_decimal())
+
+class Point:
+
+    def __init__(self, x, y):
+        self.xcod = x
+        self.ycod = y
+
+    def __str__(self):
+        return f"<{self.xcod},{self.ycod}>"
+
+    def euclidean_distance(self, other):
+        return (((self.xcod - other.xcod)**2) + ((self.ycod - other.ycod)**2))**0.5
+
+    def distance_from_origin(self):
+        return self.euclidean_distance(Point(0,0))  #(((self.xcod - 0)**2) + ((self.ycod - 0)**2))**1/2
+    
+
+# p1 = Point(2,2)
+# p2 = Point(4,2)
+# print(p1.euclidean_distance(p2))
+# p = Point(0,4)
+# print(p.distance_from_origin())
+
+class Line:
+
+    def __init__(self, A, B, C):
+        self.a = A
+        self.b = B
+        self.c = C
+
+    def __str__(self):
+        return f"({self.a}x) + ({self.b}y) + ({self.c}) = 0"
+
+    def point_on_line(line, point):
+        if line.a * point.xcod + line.b*point.ycod + line.c == 0:
+            return True
+        else:
+            return False
+
+l1 = Line(1,-1,-2)
+print(l1.point_on_line(Point(1,-1)))
