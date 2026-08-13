@@ -1,9 +1,18 @@
 class Atm:
+
+    __counter = 100
     # constructor
     def __init__(self):
         self.__pin = ""  # double underscore to make the attributes private now it's memory location name is -> _Atm__balance
         self.__balance = 0 
+        self.cid = Atm.__counter
+        Atm.__counter +=1
         self.menu()
+
+    #utility functions
+    @staticmethod
+    def get_counter():
+        return Atm.__counter
 
     def get_balance(self):
         return self.__balance
@@ -81,5 +90,5 @@ class Atm:
 
 
 p1 = Atm()
-p1.__balance = 0
-p1.withdraw()
+p2 = Atm()
+p3 = Atm()
